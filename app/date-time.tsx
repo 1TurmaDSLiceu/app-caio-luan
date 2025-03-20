@@ -6,7 +6,7 @@ const DateTime = () => {
     const [date, setDate] = useState(new Date());
     const [show, setShow] = useState(false);
 
-    const showDatePicker = () => {
+    const showTimePicker = () => {
         setShow(true);
     };
 
@@ -19,22 +19,22 @@ const DateTime = () => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Escolha uma data</Text>
-            <TouchableOpacity style={styles.button} onPress={showDatePicker}>
+            <Text style={styles.title}>Escolha uma hora</Text>
+            <TouchableOpacity style={styles.button} onPress={showTimePicker}>
                 <Text style={styles.buttonText}>Selecionar</Text>
             </TouchableOpacity>
 
             {show && (
                 <DateTimePicker
                     value={date}
-                    mode="date"
+                    mode="time"
                     display="spinner"
                     onChange={onChange}
                 />
             )}
 
             <Text style={styles.dateText}>
-                {date.toLocaleString()}
+                {date.toLocaleTimeString()}
             </Text>
         </View>
     );
